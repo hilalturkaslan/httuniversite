@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HT Üniversitesi Ders Seçim Ekranı</title>
+    <link rel="stylesheet" href="/static/css/dersec.css">
+</head>
+<body>
+    <header>
+        <h1>HT Üniversitesi Ders Seçim Ekranı</h1>
+    </header>
+
+    <h1>Hoşgeldiniz, {{ current_user.id }}</h1>
+    <a href="{{ url_for('logout') }}">Çıkış Yap</a>
+
+    <main>
+        <section class="dönem">
+            <h2>1. Dönem</h2>
+            <form id="semester1">
+                <ul>
+                    <li><input type="checkbox" name="course" value="Yönetim Bilişim Sistemlerine Giriş" data-credit="9"> Yönetim Bilişim Sistemlerine Giriş (9 kredi)</li>
+                    <li><input type="checkbox" name="course" value="Programlamaya Giriş" data-credit="9"> Programlamaya Giriş (9 kredi)</li>
+                    <li><input type="checkbox" name="course" value="İş İletişimi" data-credit="6"> İş İletişimi (6 kredi)</li>
+                    <li><input type="checkbox" name="course" value="İş Matematiği" data-credit="7"> İş Matematiği (7 kredi)</li>
+                    <li><input type="checkbox" name="course" value="Ekonomiye Giriş" data-credit="6"> Ekonomiye Giriş (6 kredi)</li>
+                </ul>
+            </form>
+        </section>
+        <button onclick="validateSelection()">Dersleri Onayla</button>
+    </main>
+    <footer>
+        <p>&copy; 2024 Yönetim Bilişim Sistemleri Bölümü</p>
+    </footer>
+    <script>
+        function validateSelection() {
+            var checkboxes = document.querySelectorAll('#semester1 input[type="checkbox"]');
+            var totalCredits = 0;
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    totalCredits += parseInt(checkbox.getAttribute('data-credit'));
+                }
+            });
+            if (totalCredits > 30) {
+                alert("Toplam kredi 30'u geçemez!");
+            } else {
+                window.location.href = "{{ url_for('onay') }}"; 
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    background-color: #040e9e;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+main {
+    padding: 20px;
+}
+
+.donem {
+    margin-bottom: 30px;
+}
+
+.donem h2 {
+    font-size: 24px;
+    color:#040e9e;
+}
+
+.donem ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.donem ul li {
+    margin-bottom: 5px;
+    font-size: 16px;
+}

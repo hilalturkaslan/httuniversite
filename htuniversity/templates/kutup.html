@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HT Üniversitesi Kütüphanesi</title>
+    <link rel="stylesheet" href="/static/css/kutup.css">
+    <style>
+        .filter {
+            display: none;
+        }
+        .filter.active {
+            display: block;
+        }
+        .tab-button.active {
+            background-color: #ddd; /* Aktif tabın rengini belirtin */
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Tab butonlarını seç
+            const tabButtons = document.querySelectorAll(".tab-button");
+
+            // Filtre alanlarını seç
+            const filters = document.querySelectorAll(".filter");
+
+            // İlk tab ve içerik aktif olsun
+            tabButtons[0].classList.add("active");
+            filters[0].classList.add("active");
+
+            // Tab butonlarına tıklama olayını ekle
+            tabButtons.forEach((button, index) => {
+                button.addEventListener("click", function() {
+                    // Tüm tab butonlarından active sınıfını kaldır
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove("active");
+                    });
+
+                    // Tüm filtrelerden active sınıfını kaldır ve filtreyi gizle
+                    filters.forEach(filter => {
+                        filter.classList.remove("active");
+                    });
+
+                    // Tıklanan tab butonuna active sınıfını ekle
+                    button.classList.add("active");
+
+                    // Tıklanan tab butonuna ilişkin filtreyi göster
+                    const targetFilter = filters[index];
+                    targetFilter.classList.add("active");
+                });
+            });
+
+            // Tüm filtrelerin içindeki arama butonlarına tıklama olayını ekle
+            filters.forEach(filter => {
+                const inputField = filter.querySelector('input[type="text"]');
+                const searchButton = filter.querySelector('.search-btn');
+                
+                if (inputField && searchButton) {
+                    searchButton.addEventListener('click', function(event) {
+                        if (inputField.value.trim() === "") {
+                            alert("Lütfen arama yapmak için bir değer giriniz.");
+                            event.preventDefault(); // Arama işlemini durdur
+                        } else {
+                            console.log("Arama yapılacak: " + inputField.value);
+                            // Burada arama fonksiyonunu çağırabilirsiniz
+                            // search('ebook-search', 'E-Yayın'); // Örnek arama fonksiyonu
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <a href="/"><h1>HT Üniversitesi Kütüphanesi</h1></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Hakkımızda</a>
+                    <div class="dropdown-content">
+                        <a href="#mission">Misyon</a>
+                        <a href="#staff">Personel</a>
+                        <a href="#contact">İletişim</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Hizmetler</a>
+                    <div class="dropdown-content">
+                        <a href="#catalog">Katalog</a>
+                        <a href="#borrow">Ödünç Alma</a>
+                        <a href="#study">Çalışma Odaları</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Kaynaklar</a>
+                    <div class="dropdown-content">
+                        <a href="#ebooks">eKitaplar</a>
+                        <a href="#journals">Dergiler</a>
+                        <a href="#databases">Veritabanları</a>
+                    </div>
+                </li>
+                <li><a href="#news">Haberler</a></li>
+                <li><a href="#events">Etkinlikler</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="search">
+        <div class="search-box">
+            <div class="tab-buttons">
+                <button class="tab-button" data-target="filter-ebooks">e-Yayın</button>
+                <button class="tab-button" data-target="filter-printed">Basılı Yayın</button>
+                <button class="tab-button" data-target="filter-ejournals">e-Dergi</button>
+            </div>
+            <div class="filter" id="filter-ebooks">
+                <h3>e-Yayın</h3>
+                <input type="text" placeholder="e-Yayın Adı">
+                <button class="search-btn">Ara</button>
+                <div class="search-results"></div>
+            </div>
+            <div class="filter" id="filter-printed">
+                <h3>Basılı Yayın</h3>
+                <input type="text" placeholder="Basılı Yayın Adı">
+                <button class="search-btn">Ara</button>
+                <div class="search-results"></div>
+            </div>
+            <div class="filter" id="filter-ejournals">
+                <h3>e-Dergi</h3>
+                <select>
+                    <option value="a">Adı Şununla Başlasın</option>
+                    <option value="b">Şu Olsun</option>
+                    <option value="c">e-Dergi ve Kitap Arayın</option>
+                </select>
+                <input type="text" placeholder="e-Dergi">
+                <button class="search-btn">Ara</button>
+                <div class="search-results"></div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="mission">
+            <h2>Misyonumuz</h2>
+            <p>Üniversite topluluğumuzun eğitim ve araştırma ihtiyaçlarını desteklemek için kapsamlı kaynaklar ve hizmetler sunmak.</p>
+        </section>
+        
+        <section id="staff">
+            <h2>Kütüphane Personeli</h2>
+            <p>Size yardımcı olmak için burada olan özverili kütüphaneciler ve personelimizle tanışın.</p>
+        </section>
+        
+        <section id="contact">
+            <h2>İletişim</h2>
+            <p>Sorularınız için lütfen bize library@university.edu adresinden e-posta gönderin veya (123) 456-7890 numaralı telefonu arayın.</p>
+        </section>
+        
+        <section id="catalog">
+            <h2>Kütüphane Kataloğu</h2>
+            <p>Kitaplar, dergiler ve multimedya kaynaklarımızın geniş koleksiyonunu arayın.</p>
+        </section>
+        
+        <section id="borrow">
+            <h2>Ödünç Alma Politikaları</h2>
+            <p>Ödünç alma politikalarımızı, ödünç alma sürelerini ve cezaları öğrenin.</p>
+        </section>
+        
+        <section id="study">
+            <h2>Çalışma Odaları</h2>
+            <p>Bireysel veya grup çalışma seansları için bir çalışma odası rezerve edin.</p>
+        </section>
+        
+        <section id="ebooks">
+            <h2>eKitaplar</h2>
+            <p>Çevrimiçi okumaya uygun elektronik kitap koleksiyonumuza erişin.</p>
+        </section>
+        
+        <section id="journals">
+            <h2>Dergiler</h2>
+            <p>Akademik dergiler ve süreli yayınlar koleksiyonumuzu keşfedin.</p>
+        </section>
+        
+        <section id="databases">
+            <h2>Veritabanları</h2>
+            <p>Öğrencilerimiz ve öğretim üyelerimiz için mevcut akademik ve araştırma veritabanlarını bulun.</p>
+        </section>
+        
+        <section id="news">
+            <h2>Kütüphane Haberleri</h2>
+            <p>Kütüphaneden en son haberler ve duyurular hakkında bilgi edinin.</p>
+        </section>
+        
+        <section id="events">
+            <h2>Yaklaşan Etkinlikler</h2>
+            <p>Atölye çalışmaları, konferanslar ve diğer kütüphane etkinliklerine katılın.</p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 HT Üniversitesi Kütüphanesi. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>
+
+
+

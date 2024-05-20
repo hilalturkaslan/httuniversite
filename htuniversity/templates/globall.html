@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="/static/css/style.css" type="text/css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HT University</title>
+    <meta charset="UTF-8"/>
+    <meta name="Description" content="cyber security"/>
+    <meta name="Keywords" content="cyber,systems,security"/>
+    <meta name="googlebot" content="noarchive"/>
+    <meta name="Revisit-After" content="1 days"/>
+    <meta name="robots" content="index,contact"/>
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-QsbwPSwPz5tIL7ZCF7I2BaB28aKNbqMZid2Hlr7u1cmUx8ubJTjIXK//xJXsO8XoXmg8HdIw4d/ydKS41RdWwQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .button-container {
+           text-align: left; 
+        }
+
+    
+        .image-button {
+          display: inline-block;
+          text-decoration: none; 
+          border: none;
+          cursor: pointer;
+        }
+    
+     
+        .image-button img {
+          width: 30px; 
+          height: auto; 
+        }
+      </style>
+<style>
+   
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+
+    .menu-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f0f0f0;
+      padding: 10px;
+    }
+  
+
+    .announcement-box {
+      background-color: #fff;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      padding: 10px;
+      margin-right: 10px;
+    }
+  
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+  
+
+    .dropdown-button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      border-radius: 5px;
+      z-index: 1;
+    }
+  
+ 
+    .dropdown-content a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+    }
+  
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  </style>
+
+
+</head>
+
+<body>
+<nav class="navbar">
+    <ul>
+        <li><a href="/" class="image-button">
+            <img src="{{ url_for('static', filename='/images/tr.png') }}" alt="Button Image">
+        </a></li>
+        <li><a href="global.html" class="image-button">
+            <img src="{{ url_for('static', filename='/images/flag_kingdom.png') }}" alt="Button Image">
+        </a></li>
+        <li><a href="facebook.html" class="image-button">
+            <img src="{{ url_for('static', filename='/images/facebook .png') }}" alt="Button Image">
+        </a></li>
+        <li><a href="twitter.html" class="image-button">
+            <img src="{{ url_for('static', filename='/images/twitter.png') }}" alt="Button Image">
+        </a></li>
+        <li><a href="youtube.html" class="image-button">
+            <img src="{{ url_for('static', filename='/images/youtube.png') }}" alt="Button Image">
+        </a></li>
+        <li><a href="accessible.html" class="image-button" >
+            <img src="{{ url_for('static', filename='/images/engelsiz.png') }}"  alt="Button Image">Accessible Life
+        </a></li>
+        <li><a href="candidate.html" class="image-button">
+            <img src="{{ url_for('static', filename='/images/student.png') }}" alt="Button Image">Prospective Student
+        </a></li>
+        <li><a href="search.html" class="image-button">
+            <img src="{{ url_for('static', filename='/images/search.png') }}" alt="Button Image">Search
+        </a></li>
+        <li><a href="alumni.html" class="image-button">
+            <img src="{{ url_for('static', filename='/images/mezun.png') }}" alt="Button Image">Alumni
+        </a></li>
+        <li><a href="ogeb.html" class="image-button">
+            <img src="{{ url_for('static', filename='/images/ogeb.png') }}" alt="Button Image">OGEB
+        </a></li>
+        <li><a href="/login" class="image-button">
+            <img src="{{ url_for('static', filename='/images/ogeb.png') }}" alt="Button Image">LOGIN
+        </a></li>
+        <li><a href="email.html" class="image-button">
+            <img src="{{ url_for('static', filename='/images/email.png') }}" alt="Button Image">Staff Email
+        </a></li>
+        <li><a href="studentmail.html" class="image-button">
+            <img src="{{ url_for('static', filename='/images/email.png') }}" alt="Button Image">Student Email
+        </a></li>
+        <li><a href="Information Security.html">Information Security</a></li>
+        <li><a href="kvkk.html">KVKK</a></li>
+    </ul>
+
+
+
+
+</nav>
+
+<nav class="navbar2">
+    <a class="navbar-brand" href="/">HT UNIVERSITY</a>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="our_university.html">Our University</a></li>
+        <li><a href="management.html">Management</a></li>
+        <li><a href="academic.html">Academic</a></li>
+        <li><a href="administrative.html">Administrative</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="/library">Library</a></li>
+        <li><a href="contact.html">Contact</a></li> 
+    </ul>
+</nav>
+
+<nav class="navbar5">
+    <ul class="bxslider">
+      <li><img src="{{ url_for('static', filename='/images/obs.jpg') }}" /></li>
+      <li><img src="{{ url_for('static', filename='/images/obs2.jpg') }}" /></li>
+      <li><img src="{{ url_for('static', filename='/images/images.jpg') }}" /></li>
+    </ul>
+</nav>
+
+
+    <script>
+        $(document).ready(function(){
+          $('.bxslider').bxSlider();
+        });
+    </script>
+
+<div class="menu-container">
+  
+    <div class="announcement-box">HT</div>
+    <div class="announcement-box">UNIVERSITY</div>
+    <div class="announcement-box">Home</div>
+  
+
+    <div class="dropdown">
+
+      <button class="dropdown-button">Search</button>
+      
+
+      <div class="dropdown-content">
+        <a href="#">Faculty</a>
+        <a href="#">Campus</a>
+        <a href="#">Deanery</a>
+      </div>
+    </div>
+  
+</div>
+
+<footer>
+  <p>&copy; 2024 </p>
+</footer>
+
+</body>
+</html>

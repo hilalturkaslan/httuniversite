@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HT Üniversitesi GİRİŞ EKRANI</title>
+    <link rel="stylesheet" href="/static/css/giris_ekran.css">
+</head>
+<body>
+    <div class="container">
+        <div class="panel">
+            <h2>HT Üniversitesi GİRİŞ EKRANI</h2>
+            <div class="form">
+                <form action="/login" method="post" class="form-in">
+                        <input type="text" name="username" class="username" placeholder="Kullanıcı Adınız" required>
+                        <p>@
+                        <select name="emailHost" class="email-host" required>
+                            <option value="ht.edu.tr">ht.edu.tr</option>
+                            <option value="ogr.ht.edu.tr">ogr.ht.edu.tr</option>
+                            <option value="mogr.ht.edu.tr">mogr.ht.edu.tr</option>
+                            <option value="mht.edu.tr">mht.edu.tr</option>
+                        </select></p>
+                        <input type="password" name="password" class="password" placeholder="Şifreniz" required>
+                        <button type="submit" class="button">Gönder</button>
+                        <p><a href="/misafir">!!Misafir Öğrencilerimiz Ve Öğretmenlerimiz Lütfen Mailinizi Oluşturmak İçin Tıklayınız!!</a></p>
+                </form>
+                {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                    <div id="error-message">
+                      {% for message in messages %}
+                        <p>{{ message }}</p>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+

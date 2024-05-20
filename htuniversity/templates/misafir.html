@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HT Üniversitesi Misafir Kullanıcı Ekleme Ekranı </title>
+    <style>
+        header, footer {
+           background-color: #040e9e;
+           color: #fff;
+           text-align: center;
+           padding: 1em 0;
+        }
+        .form {
+            max-width: 400px;
+            margin: auto;
+            padding: 1em;
+            border: 1px solid #ccc;
+            border-radius: 1em;
+        }
+        .form-in {
+            display: flex;
+            flex-direction: column;
+        }
+        .username, .email-host, .password {
+            margin-bottom: 1em;
+        }
+        .button {
+            padding: 0.7em;
+            border: none;
+            background: rgb(9, 58, 150);
+            color: white;
+            border-radius: 0.3em;
+            cursor: pointer;
+        }
+        #error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HT Üniversitesi Misafir Kullanıcı Ekleme Ekranı</h1>
+    </header>
+    <div class="form">
+        <form action="/misafir" method="post" class="form-in">
+            <input type="text" name="username" class="username" placeholder="Kullanıcı Adınız" required>
+            <p>@
+            <select name="emailHost" class="email-host" required>
+                <option value="mht.edu.tr" selected>mht.edu.tr</option>
+                <option value="mogr.ht.edu.tr">mogr.ht.edu.tr</option>
+            </select></p>
+            <input type="password" name="password" class="password" placeholder="Şifreniz" required>
+            <button type="submit" class="button">Gönder</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div id="error-message">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Üniversite Misafir Kullanıcılar</p>
+    </footer>
+</body>
+</html>
